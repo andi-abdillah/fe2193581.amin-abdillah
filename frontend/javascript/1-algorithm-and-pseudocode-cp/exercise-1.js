@@ -10,3 +10,8 @@
 // 7. Jika kelengkapan dari no. 6 ada yang kurang, lapor ke bagian administrasi, dan kembali menerima ulang kelengkapan tersebut. 
 // 7. Mengikuti orientasi.
 // 8. Kuliah berjalan.
+
+
+// Link Flowchart di bawah
+
+// https://drive.google.com/file/d/1IrY72m6Sq5v9syiNqeJMuEqE82XeqJ7T/view?usp=sharing
