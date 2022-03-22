@@ -8,4 +8,4 @@
 // tambahkan if statement di dalam loop : apabila i%2 == 0 maka, genap = genap + 1
 // loop berhenti
 // print genap
-// program berhenti
+// program selesai
