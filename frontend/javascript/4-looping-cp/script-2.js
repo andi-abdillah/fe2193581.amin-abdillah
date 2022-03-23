@@ -10,6 +10,13 @@
 // *
 
 // Masukan jumlah baris
-const n = parseInt(prompt("Masukan jumlah baris: "));
+const n = 5;
 
-// TODO: answer here
+let hasil = '';
+for (let i = 1; i < n; i++) {
+    for (let j = n; j > i; j--) {
+        hasil += '*';
+    }
+    hasil += '\n';
+}
+console.log(hasil);
