@@ -11,12 +11,23 @@
 
 function checkPalindrome(string) {
     // TODO: answer here
+    newArray = [];
+    for (let i = string.length - 1; i >= 0; i--) {
+        newArray.push(string[i]);
+    }
+    if (string === newArray.join('')) {
+        console.log(string + " = " + newArray.join(''));
+        return true;
+    } else {
+        console.log(string + " != " + newArray.join(''));
+        return false;
+    }
+    
 }
 
 // masukan teks
-const string = prompt('Enter a string: ');
+const string = "madam";
 
 // memanggil fungsi palindrom
 const value = checkPalindrome(string);
-
 console.log(value);
