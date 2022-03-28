@@ -19,21 +19,3 @@ function reverseString(str) {
 const string = "kasur";
 
 const result = reverseString(string);
-
-
-// Or
-
-// function reverseString(str) {
-//     // TODO: answer here
-//     console.log(str.split('').reverse().join(''));
-// }
-
-// // take input from the user
-// const string = prompt('Masukan teks: ');
-
-// const result = reverseString(string);
-// console.log(result);
-
-// split = memecah string menjadi array
-// reverse = membalik urutan array
-// join = menggabungkan array menjadi string

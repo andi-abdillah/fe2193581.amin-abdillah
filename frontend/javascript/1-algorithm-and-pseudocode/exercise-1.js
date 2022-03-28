@@ -7,7 +7,6 @@
 
 // Algoritma:
 
-
 ```
 1. Masukan nilai panjang
 2. Masukan nilai lebar
