@@ -11,13 +11,54 @@
 
 // PSEUDOCODE:
 // TODO: answer here
+// START
+//   FUNCTION gatcha(button)
+//     switch (button)
+//       CASE 1
+//         console.log('coba lagi ya')
+//       CASE 2
+//         console.log('selamat kamu mendapatkan kupon sebanyak 5')
+//       CASE 3
+//         console.log('selamat kamu mendapatkan kupon sebanyak 15')
+//       CASE 4
+//         console.log('selamat kamu mendapatkan kupon sebanyak 50')
+//       CASE 5
+//         console.log('selamat kamu mendapatkan kupon sebanyak 100')
+//       DEFAULT
+//         console.log('invalid data')
+//     END
+//   END FUNCTION
+// END
+
 
 function gatcha(button) {
   // TODO: answer here
+  switch (button) {
+    case 1:
+      console.log('coba lagi ya');
+      break;
+    case 2:
+      console.log('selamat kamu mendapatkan kupon sebanyak 5');
+      break;
+    case 3:
+      console.log('selamat kamu mendapatkan kupon sebanyak 15');
+      break;
+    case 4:
+      console.log('selamat kamu mendapatkan kupon sebanyak 50');
+      break;
+    case 5:
+      console.log('selamat kamu mendapatkan kupon sebanyak 100');
+      break;
+    default:
+      console.log('invalid data');
+      break;
+  }
+  return;
 }
 
 // Create variable button here
 // TODO: answer here
+const button = 3;
 
 console.log(gatcha(button))
 

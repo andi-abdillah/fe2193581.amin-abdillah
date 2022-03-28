@@ -8,6 +8,15 @@
 
 function angkaPalindrome(num) {
   // TODO: answer here
+  var palindrome = 0;
+  for(i=num; i>=num; i++){
+    var reverse = i.toString().split('').reverse().join('');
+    if(i === parseInt(reverse)){
+      palindrome = i;
+      break;
+    }
+  }
+  return palindrome;
 }
 
 console.log(angkaPalindrome(10)); //11

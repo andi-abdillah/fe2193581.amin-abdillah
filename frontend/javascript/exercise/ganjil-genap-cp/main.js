@@ -10,28 +10,31 @@ Setiap plat nomer di pisahkan oleh karakter ";"
 
 function ganjilGenap(plat) {
   // TODO: answer here
-  var ganjil = 0;
-  var genap = 0;
-  var newPlat = '';
-  for (let i = 0; i < plat.length; i++) {
-    if (plat[i] === ';') {
-      if (ganjil % 2 === 0) {
-        genap++;
-      } else {
-        ganjil++;
-      }
+  var platGanjil = 0;
+  var platGenap = 0;
+  var platGanjilString = "";
+  var platGenapString = "";
+  var platString = plat.split(';');
+  for(i=0; i<platString.length; i++){
+    if(platString[i] % 2 === 0){
+      platGenap++;
+      platGenapString += platString[i] + ";";
+    } else {
+      platGanjil++;
+      platGanjilString += platString[i] + ";";
     }
   }
-  if (ganjil === 0 && genap === 0) {
-    console.log('invalid data');
-  } else if (ganjil === 0 && genap !== 0) {
-    console.log('plat genap sebanyak ' + genap + ' dan plat ganjil tidak ditemukan');
-  } else if (ganjil !== 0 && genap === 0) {
-    console.log('plat ganjil sebanyak ' + ganjil + ' dan plat genap tidak ditemukan');
-  } else {
-    console.log('plat genap sebanyak ' + genap + ' dan plat ganjil sebanyak ' + ganjil);
+  if(platGanjil === 0 && platGenap === 0){
+    return "plat tidak ditemukan";
+  }else if(platGanjil === 0 && platGenap > 0){
+    return "plat genap sebanyak " + platGenap + " dan plat ganjil tidak ditemukan";
+  }else if(platGenap === 0 && platGanjil > 0){
+    return "plat ganjil sebanyak " + platGanjil + " dan plat genap tidak ditemukan";
+  }else if(platGanjil > 0 && platGenap > 0){
+    return "plat genap sebanyak " + platGenap + " dan plat ganjil sebanyak " + platGanjil;
+  }else if(plat == ""){
+    return "invalid data";
   }
-  return;
 }
 
 console.log(ganjilGenap('2341;3429;864;1309;1276')) //plat genap sebanyak 2 dan plat ganjil sebanyak 3
