@@ -10,3 +10,5 @@ module.exports = {
     sum,
     multiply
 }
+
+// komentar
