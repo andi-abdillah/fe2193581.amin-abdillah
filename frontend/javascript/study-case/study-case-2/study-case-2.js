@@ -28,8 +28,39 @@
 
 function getMaximumGold(grid) {
     // TODO: answer here
-}; 
+    var maxSum = 0;
+    var visited = [];
+    var row = grid.length;
+    var col = grid[0].length;
+    var dfs = function(i, j, sum) {
+        if (i < 0 || i >= row || j < 0 || j >= col || grid[i][j] === 0 || visited[i][j]) {
+            return;
+        }
+        visited[i][j] = true;
+        sum += grid[i][j];
+        maxSum = Math.max(maxSum, sum);
+        dfs(i-1, j, sum);
+        dfs(i+1, j, sum);
+        dfs(i, j-1, sum);
+        dfs(i, j+1, sum);
+        visited[i][j] = false;
+    }
+    for (var i=0; i<row; i++) {
+        visited[i] = [];
+        for (var j=0; j<col; j++) {
+            visited[i][j] = false;
+        }
+    }
+    for (var i=0; i<row; i++) {
+        for (var j=0; j<col; j++) {
+            dfs(i, j, 0);
+        }
+    }
+    return maxSum;
+};
 
 // TODO: answer here
+grid = [[1,0,7],[2,0,6],[3,4,5],[0,3,0],[9,0,20]];
+console.log(getMaximumGold(grid));
 
 module.exports = getMaximumGold
