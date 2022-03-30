@@ -33,33 +33,34 @@
 
 function gatcha(button) {
   // TODO: answer here
+  let output = '';
   switch (button) {
     case 1:
-      console.log('coba lagi ya');
+      output = 'coba lagi ya';
       break;
     case 2:
-      console.log('selamat kamu mendapatkan kupon sebanyak 5');
+      output = 'selamat kamu mendapatkan kupon sebanyak 5';
       break;
     case 3:
-      console.log('selamat kamu mendapatkan kupon sebanyak 15');
+      output = 'selamat kamu mendapatkan kupon sebanyak 15';
       break;
     case 4:
-      console.log('selamat kamu mendapatkan kupon sebanyak 50');
+      output = 'selamat kamu mendapatkan kupon sebanyak 50';
       break;
     case 5:
-      console.log('selamat kamu mendapatkan kupon sebanyak 100');
+      output = 'selamat kamu mendapatkan kupon sebanyak 100';
       break;
     default:
-      console.log('invalid data');
+      output = 'invalid data';
       break;
   }
-  return;
+  return output;
 }
 
 // Create variable button here
 // TODO: answer here
-const button = 3;
+const button = 5;
 
-console.log(gatcha(button))
+console.log(gatcha(button));
 
 module.exports = gatcha

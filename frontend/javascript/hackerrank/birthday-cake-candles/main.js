@@ -13,7 +13,14 @@
 
 function birthdayCakeCandles(candles) {
   // Write your code here
-	// TODO: answer here
+  const tallestCandle = Math.max(...candles);
+  let totalOfTallestCandle = 0;
+  for(let i=0; i<candles.length; i++){
+      if(tallestCandle === candles[i]){
+          totalOfTallestCandle++;
+      }
+  }
+  return totalOfTallestCandle;
 }
 
 function main() {

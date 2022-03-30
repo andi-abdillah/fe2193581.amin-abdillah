@@ -21,23 +21,24 @@
 function ruangCafe(name, age, money) {
   const juice = 50000;
   const latte = 300000;
-
+  let output = '';
   // TODO: answer here
   if (name === '') {
-    console.log('Anda tidak boleh masuk!');
+    output = 'Anda tidak boleh masuk!';
   } else if (age < 17) {
     if (money < juice) {
-      console.log('Uang tidak cukup. Anda harus pulang.');
+      output ='Uang tidak cukup. Anda harus pulang.';
     } else {
-      console.log(`Anda bisa pesan juice. Sisa uang anda: ${money - juice}`);
+      output = `Anda bisa pesan juice. Sisa uang anda: ${money - juice}`;
     }
   } else {
     if (money < latte) {
-      console.log('Uang tidak cukup. Anda harus pulang.');
+      output ='Uang tidak cukup. Anda harus pulang.';
     } else {
-      console.log(`Anda bisa pesan latte. Sisa uang anda: ${money - latte}`);
+      output = `Anda bisa pesan latte. Sisa uang anda: ${money - latte}`;
     }
   }
+  return output;
 }
 
 console.log(ruangCafe('', 21, 2000000))

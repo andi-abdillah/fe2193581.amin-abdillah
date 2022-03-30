@@ -14,6 +14,14 @@
 function gradingStudents(grades) {
   // Write your code here
   // TODO: answer here
+  let multipleTo = 5;
+  let roundTo = 2;
+  for(let i = 0; i < grades.length; i++) {
+      if(grades[i] >= 38 && grades[i] % multipleTo > roundTo) {
+          grades[i] = grades[i] + (multipleTo - (grades[i] % multipleTo));
+      }
+  }
+  return grades;
 }
 
 function main() {

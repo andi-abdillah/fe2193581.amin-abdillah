@@ -37,16 +37,13 @@
 
 function fixData(line) {
   // TODO: answer here
-   var virus = 0;
    var konsonan = 0;
    var vocal = 0;
    var newLine = '';
    for (let i = 0; i < line.length; i++) {
          if (line[i] === 'a' || line[i] === 'i' || line[i] === 'u' || line[i] === 'e' || line[i] === 'o') {
             vocal++;
-         } else if (line[i] === '#') {
-            virus++;
-         } else{
+         } else if (line[i] !== '#' ) {
             konsonan++;
          }
       }
@@ -80,12 +77,11 @@ function fixData(line) {
       else {
          newLine = line;
       }
-      console.log(newLine);
-      return;
+      return newLine;
 }
 
-console.log(fixData('aoi#fdg#ue'))
-console.log(fixData('eh#xyz#oi#'))
-console.log(fixData('#eui#bcl##'))
+console.log(fixData('abc#ab#ueo')); // 'abcbabbueo'
+console.log(fixData('abc#ab#bcb')) // 'abcaababcb';
+console.log(fixData('aiu#bcd#ab')); // 'aiucbcdcab';
 
 module.exports = fixData

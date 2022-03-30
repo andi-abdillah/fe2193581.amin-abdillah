@@ -17,7 +17,6 @@ function konversiMenit(menit) {
   var result = "";
   if (menit < 10) {
     menit = '0' + menit;
-    menit = parseInt(menit);
   }
   // console.log(typeof(menit));
   // console.log(typeof(result));

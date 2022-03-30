@@ -15,6 +15,7 @@ function ganjilGenap(plat) {
   var platGanjilString = "";
   var platGenapString = "";
   var platString = plat.split(';');
+  var output = "";
   for(i=0; i<platString.length; i++){
     if(platString[i] % 2 === 0){
       platGenap++;
@@ -25,15 +26,15 @@ function ganjilGenap(plat) {
     }
   }
   if(platGanjil === 0 && platGenap === 0){
-    return "plat tidak ditemukan";
+    return output = "plat tidak ditemukan";
   }else if(platGanjil === 0 && platGenap > 0){
-    return "plat genap sebanyak " + platGenap + " dan plat ganjil tidak ditemukan";
+    return output = "plat genap sebanyak " + platGenap + " dan plat ganjil tidak ditemukan";
   }else if(platGenap === 0 && platGanjil > 0){
-    return "plat ganjil sebanyak " + platGanjil + " dan plat genap tidak ditemukan";
+    return output = "plat ganjil sebanyak " + platGanjil + " dan plat genap tidak ditemukan";
   }else if(platGanjil > 0 && platGenap > 0){
-    return "plat genap sebanyak " + platGenap + " dan plat ganjil sebanyak " + platGanjil;
+    return output = "plat genap sebanyak " + platGenap + " dan plat ganjil sebanyak " + platGanjil;
   }else if(plat == ""){
-    return "invalid data";
+    return output = "invalid data";
   }
 }
 
