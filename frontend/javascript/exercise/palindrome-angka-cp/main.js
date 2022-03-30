@@ -8,18 +8,24 @@
 
 function angkaPalindrome(num) {
   // TODO: answer here
-  var palindrome = 0;
-  for(i=num; i>=num; i++){
-    var reverse = i.toString().split('').reverse().join('');
-    if(i === parseInt(reverse)){
+  if(num < 10){
+    num = 10;
+  }
+  let palindrome = 0;
+  for(let i=num; i>=num; i++){
+    let reverse = i.toString().split('').reverse().join('');
+    reverse = parseInt(reverse);
+    if(i === reverse){
       palindrome = i;
       break;
     }
+    // console.log(typeof(reverse));
   }
+  // console.log(typeof(palindrome));
   return palindrome;
 }
 
-console.log(angkaPalindrome(10)); //11
+console.log(angkaPalindrome(6)); //11
 console.log(angkaPalindrome(17)); //22
 console.log(angkaPalindrome(175)); //181
 
