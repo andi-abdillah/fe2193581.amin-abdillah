@@ -21,6 +21,25 @@ Lengkapilah function dengan input kata sandi dan output terjemahannya
 
 function terjemahKataSandi(kataSandi) {
   // TODO: answer here
+  var kataSandiString = kataSandi.split('');
+  for(i=0; i<kataSandiString.length; i++){
+    if(kataSandiString[i] === '&'){
+      kataSandiString[i] = "";
+    }else if(kataSandiString[i] === '%'){
+      kataSandiString[i] = "";
+    }else if(kataSandiString[i] === '^'){
+      kataSandiString[i] = "";
+    }else if(kataSandiString[i] === '#'){
+      kataSandiString[i] = " ";
+    }else if(kataSandiString[i] === ']'){
+      kataSandiString[i] = ",";
+    }else if(kataSandiString[i] === '+'){
+      kataSandiString[i] = "A";
+    }else if(kataSandiString[i] === ' '){
+      kataSandiString[i] = "E";
+    }
+  }
+  return kataSandiString.join('');
 }
 
 
