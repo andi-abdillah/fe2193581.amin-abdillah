@@ -17,6 +17,16 @@
 function compareTriplets(a, b) {
   // Write your code here
   // TODO: answer here
+  let alliceScore = 0;
+  let bobScore = 0; 
+  for(let i=0 ; i<a.length; i++ ){
+      if(a[i] > b[i]){
+          alliceScore++;
+      }else if(a[i] < b[i]){
+          bobScore++;
+      }
+  }
+  return [alliceScore, bobScore];
 }
 function main() {
 

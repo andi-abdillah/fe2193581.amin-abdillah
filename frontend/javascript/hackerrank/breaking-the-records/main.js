@@ -26,7 +26,7 @@ function breakingRecords(scores) {
           continue;
       }
       if (scores[i] < worstScore) {
-          worstScore = scores[i]
+          worstScore = scores[i];
           worst++;
           continue;
       }
