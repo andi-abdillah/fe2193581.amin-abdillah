@@ -8,6 +8,24 @@
 let calculator = {
   // Tulis kode di sini
   // TODO: answer here
+  a : 0,
+  b : 0,
+  read(){
+    this.a = Number(prompt('Masukkan nilai a'));
+    this.b = Number(prompt('Masukkan nilai b'));
+  },
+  sum(){
+    return this.a + this.b;
+  },
+  substract(){
+    return this.a - this.b;
+  },
+  multiply(){
+    return this.a * this.b;
+  },
+  division(){
+    return this.a / this.b;
+  }
 };
   
 calculator.read();
