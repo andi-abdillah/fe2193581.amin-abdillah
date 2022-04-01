@@ -14,6 +14,11 @@
 function aVeryBigSum(ar) {
   // Complete this function
   // TODO: answer here
+  let score = 0;
+  for(let i=0; i<ar.length;i++) {
+      score += ar[i];
+  }
+  return score;
 }
 
 function main() {

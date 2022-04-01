@@ -13,6 +13,17 @@
 function staircase(n) {
   // Write your code here
   // TODO: answer here
+  let line = '';
+  for(let i=0; i<n; i++){
+  	for(let j=n-1; j>i; j--){
+    	line += ' ';
+    }
+    for(let k=0; k<=i; k++){
+    	line += '#';
+    }
+    line += '\n';
+  }
+  return line;
 }
 
 function main() {
