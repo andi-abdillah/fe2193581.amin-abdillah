@@ -6,16 +6,16 @@ function number(number) {
 
 //handle when the Del button, AC button and other operators (+, /, -, x) are pressed. It renders the operator into #input element
 function operator(operator) {
-    if (operator == "*" || operator == "/" || operator == "-" || operator == "+" || operator == "=" || operator == "."){
-        // TODO: answer here
-        document.getElementById('input').value += operator;
-    } else if (operator == 'Del') {
+    if (operator == 'Del') {
         // TODO: answer here
         var del = document.getElementById('input').value.slice(0, -1);
         document.getElementById('input').value = del;
     } else if (operator == "AC") {
         // TODO: answer here
         document.getElementById('input').value = "";
+    } else{
+        // TODO: answer here
+        document.getElementById('input').value += operator;
     }
 }
 
