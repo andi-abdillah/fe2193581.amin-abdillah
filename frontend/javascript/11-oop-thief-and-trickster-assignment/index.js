@@ -19,7 +19,17 @@ class Thief extends Player {
   steal(player) {
     // TODO: answer here
     if(player.job === "Trickster"){
-      return player.distractionPurse(this);
+      if(player.getGold() < 5){
+        return "Lawan terlalu miskin";
+      }else{
+        if(this.randomizer() <= this.getStealChance()){
+          player.setGold(player.getGold() - 5);
+          this.setGold(this.getGold() + 5);
+          return player.distractionPurse(this);
+        }else{
+          return "Gagal mencuri, coba lain kali";
+        }
+      }
     }else{
       if(player.getGold() < 5){
         return "Lawan terlalu miskin";
@@ -27,10 +37,8 @@ class Thief extends Player {
         if(this.randomizer() <= this.getStealChance()){
           player.setGold(player.getGold() - 5);
           this.setGold(this.getGold() + 5);
-          this.setHasBeenRobbed(true);
           return "Berhasil mencuri 5 gold";
         }else{
-          this.setHasBeenRobbed(false);
           return "Gagal mencuri, coba lain kali";
         }
       }
@@ -64,8 +72,8 @@ class Trickster extends Player {
       return "Berhasil mencuri balik semua uang lawan";
     }else{
       if(rng < this.distractionPurseChance){
-        this.gold += 5;
-        player.gold -= 5;
+        this.gold += 10;
+        player.gold -= 10;
         return "Berhasil mencuri balik 10 gold";
       }else{
         return "Gagal mencuri balik";
@@ -82,11 +90,14 @@ const p1 = new Thief("hehe");
 const p2 = new Trickster("kek");
 
 p1.setStealChance(1);
-    p2.setDistractionPurseChance(1);
-    p1.steal(p2);
-
-    const gold = p2.getGold();
-console.log(gold);
+p1.setGold(4);
+p2.setDistractionPurseChance(1);
+console.log(p1.getGold());
+console.log(p2.getGold());
+const message = p1.steal(p2);
+console.log(p1.getGold());
+console.log(p2.getGold());
+console.log(message);
 
 // Dilarang menghapus code dibawah ini!!!
 module.exports = {
