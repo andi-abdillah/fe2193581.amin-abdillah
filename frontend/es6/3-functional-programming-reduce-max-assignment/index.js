@@ -9,7 +9,17 @@
 
 const maxFromArray = (numbers) => {
   // TODO: answer here
+  const max = numbers.reduce((prevValue, currentValue)=> {
+    if(currentValue > prevValue){
+      return currentValue;
+    } else {
+      return prevValue;
+    }
+  });
   return max;
 };
+
+let numbers = [1, 1, 1, 5];
+console.log(maxFromArray(numbers))
 
 module.exports = maxFromArray

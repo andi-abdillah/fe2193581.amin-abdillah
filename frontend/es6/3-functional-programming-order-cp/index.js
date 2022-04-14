@@ -7,18 +7,15 @@
  *
  */
 
-function customisableGreeting() {
+function customisableGreeting(user, formatCallback) {
   // TODO: answer here
-  let user = {
-    firstName: "John",
-    lastName: "Doe"
-  };
-  const formatCallback = (firstName, lastName) => {
-    return `Hi name is ${firstName} ${lastName}, how are you?`;
-  };
-  return formatCallback(user.firstName, user.lastName);
+  return `Hi name is ${formatCallback(user)}, how are you?`;
 }
+let user = { firstName: "John", lastName: "Doe" };
+const formatCallback = ({ firstName, lastName }) => {
+  return `${firstName} ${lastName}`;
+};
 
-console.log(customisableGreeting());
+console.log(customisableGreeting(user, formatCallback));
 
 module.exports = customisableGreeting

@@ -8,7 +8,19 @@
 
 const countRepetition = (numbers) => {
   // TODO: answer here
+  let repetition = {};
+  for(let i=0; i<numbers.length; i++){
+    if(repetition[numbers[i]]){
+      repetition[numbers[i]] += 1;
+    } else {
+      repetition[numbers[i]] = 1;
+    }
+    // console.log(repetition);
+  }
   return repetition;
 };
+
+let numbers = [1, 1, 1, 5, 5, 10, 9];
+console.log(countRepetition(numbers));
 
 module.exports = countRepetition

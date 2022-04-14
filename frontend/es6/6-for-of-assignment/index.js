@@ -13,6 +13,27 @@
 
 const checkOmnipresent = (array, valueToFind) => {
   // TODO: answer here
+  let result = [];
+  for(let index of array){
+    for(let items of index){
+      if(items === valueToFind){
+        result.push(items);
+      }
+    }
+  }
+  if(result.length === array.length){
+    return true;
+  } else {
+    return false;
+  }
 };
+
+let array = [
+  [1, 2, 3],
+  [5, 4, 1],
+  [4, 14, 1],
+];
+let valueToFind = 2;
+console.log(checkOmnipresent(array, valueToFind));
 
 module.exports = checkOmnipresent
