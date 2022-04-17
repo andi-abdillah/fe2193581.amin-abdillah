@@ -18,6 +18,7 @@ const checkOmnipresent = (array, valueToFind) => {
     for(let items of index){
       if(items === valueToFind){
         result.push(items);
+        break;
       }
     }
   }
@@ -33,7 +34,7 @@ let array = [
   [5, 4, 1],
   [4, 14, 1],
 ];
-let valueToFind = 2;
+let valueToFind = 1;
 console.log(checkOmnipresent(array, valueToFind));
 
 module.exports = checkOmnipresent

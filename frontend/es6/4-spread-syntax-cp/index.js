@@ -10,9 +10,9 @@
 const max = (...args) => {
   // TODO: answer here
   let max = 0;
-  for(let i=0; i<args.length; i++){
-    if(args[i] > max){
-      max = args[i];
+  for(const items of args){
+    if(items > max){
+      max = items;
     }
   }
   return max;
