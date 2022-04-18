@@ -24,7 +24,7 @@ const checkOmnipresent = (array, valueToFind) => {
   }
   if(result.length === array.length){
     return true;
-  } else {
+  }else {
     return false;
   }
 };

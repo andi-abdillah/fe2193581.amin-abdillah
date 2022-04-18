@@ -9,11 +9,12 @@
 
 const lowerToUpperMap = (array) => {
   // TODO: answer here
-  let result = [];
-  for(let i=0; i<array.length; i++){
-    result.push({[array[i]]: array[i].toUpperCase()});
-  }
-  return result;
+  const lowerToUpper = array.map(item => {
+    const lowerToUpper = {};
+    lowerToUpper[item] = item.toUpperCase();
+    return lowerToUpper;
+  });
+  return lowerToUpper;
 };
 let input = ['a', 'b', 'c', 'd'];
 console.log(lowerToUpperMap(input));

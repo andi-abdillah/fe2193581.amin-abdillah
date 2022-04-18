@@ -7,11 +7,8 @@
 
  const sumTotalArray = (numbers) => {
     // TODO: answer here
-    let result = 0;
-    for(let i=0; i<numbers.length; i++){
-      result += numbers[i];
-    }
-    return result;
+    const total = numbers.reduce((previous, current)=> previous + current);
+    return total;
   };
 
   let Input = [1, 1, 1, 5];

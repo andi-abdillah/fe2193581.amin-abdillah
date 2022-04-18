@@ -24,16 +24,16 @@
 
 const returnUserAverageScore = (students) => {
   // TODO: answer here
-  let result = [];
-  for(let i=0; i<students.length; i++){
-    let mean = 0;
-    for(let j=0; j<students[i].nilai.length; j++){
-      mean += students[i].nilai[j];
-    }
-    mean = Math.round(mean/students[i].nilai.length);
-    result.push({name: students[i].name,  rataNilai: mean});
-  }
-  return result;
+  const averageScore = students.map(item => {
+    const averageScore = {};
+    const sum = item.nilai.reduce((prevValue, currentValue) => {
+      return prevValue + currentValue;
+    });
+    averageScore.name = item.name;
+    averageScore.rataNilai = Math.round(sum / item.nilai.length);
+    return averageScore;
+  });
+  return averageScore;
 };
 
 let students = [

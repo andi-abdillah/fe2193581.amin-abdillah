@@ -8,15 +8,14 @@
 
 const countRepetition = (numbers) => {
   // TODO: answer here
-  let repetition = {};
-  for(let i=0; i<numbers.length; i++){
-    if(repetition[numbers[i]]){
-      repetition[numbers[i]] += 1;
+  const repetition = numbers.reduce((previous, current)=> {
+    if(previous[current] === undefined){
+      previous[current] = 1;
     } else {
-      repetition[numbers[i]] = 1;
+      previous[current] += 1;
     }
-    // console.log(repetition);
-  }
+    return previous;
+  }, {});
   return repetition;
 };
 

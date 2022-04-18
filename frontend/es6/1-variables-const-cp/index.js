@@ -2,10 +2,13 @@
 // Ubah nilai kota pada fungsi berikut ini, tanpa membuat variabel baru
 
 function constantNoChange() {
-  const kota = "Tanggerang";
+  let kota = "Tanggerang";
   // TODO: answer here
   kota = "Surabaya";
+  return kota;
 }
+
+console.log(constantNoChange());
 
 module.exports = constantNoChange
 

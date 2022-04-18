@@ -16,13 +16,12 @@
 
 const findAnimal = (bush) => {
   // TODO: answer here
-  let result = [];
-  for(let i=0; i<bush.length; i++){
-    if(bush[i] !== bush[i].toUpperCase()){
-      result.push(bush[i]);
+  const animal = bush.split('').filter(item => {
+    if(item !== item.toUpperCase()){
+      return item;
     }
-  }
-  return result.join('');
+  });
+  return animal.join('');
 };
 console.log(findAnimal("UkUNFYGaFYFYmNUHbJKHJJiOKDJKDnKFKFLgLLF"));
 

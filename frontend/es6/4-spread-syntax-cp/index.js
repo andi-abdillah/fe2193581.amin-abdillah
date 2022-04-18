@@ -9,13 +9,14 @@
  */
 const max = (...args) => {
   // TODO: answer here
-  let max = 0;
-  for(const items of args){
-    if(items > max){
-      max = items;
+  const maxValue = args.reduce((prevValue, currentValue)=> {
+    if(prevValue > currentValue){
+      return prevValue;
+    }else{
+      return currentValue;
     }
-  }
-  return max;
+  });
+  return maxValue;
 };
 
 let input = [1, 2, 3, 4, 12, 3, 4];
