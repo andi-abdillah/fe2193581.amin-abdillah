@@ -8,6 +8,7 @@
  *
  */
 const https = require("https");
+const { resolve } = require("path");
 
 function requestStarWarsPeopleById(peopleId, onReturn, onError) {
   https
@@ -33,7 +34,18 @@ function requestStarWarsPeopleById(peopleId, onReturn, onError) {
 
 function promiseStarWarsPeopleById(peopleId) {
   // TODO: answer here
+  let result;
+  return new Promise((resolve, reject) => {
+    requestStarWarsPeopleById(peopleId, (data) => {
+      result = data;
+      resolve(result);
+    }, (error) => {
+      reject(error);
+    });
+  }
+  );
 }
+// console.log(promiseStarWarsPeopleById(1).then((data)));
 
 module.exports = {
   promiseStarWarsPeopleById,

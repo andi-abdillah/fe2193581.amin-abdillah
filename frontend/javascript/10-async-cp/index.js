@@ -41,7 +41,15 @@
  
  async function getDataPeopleById(id) {
    // TODO: answer here
+   const url = `https://swapi.dev/api/people/${id}/`;
+   let data = await getStarWarsData(url);
+   data = JSON.parse(data);
+   console.log(typeof data);
+   console.log(data);
+   return `${data.name}, memiliki tinggi ${data.height}cm dan lahir pada tahun ${data.birth_year}`;
  }
+
+console.log(getDataPeopleById(1));
 
  module.exports = {
   getDataPeopleById
