@@ -13,11 +13,13 @@
 // [1,2,3,4,5] -> [2,3,4,5,1] -> [3,4,5,1,2] -> [4,5,1,2,3] -> [5,1,2,3,4]
 
 function sort(arr) {
-    return arr // TODO: replace this
+    return arr.sort()
 }
 
 function rotateLeft(d, arr) {
-    return arr // TODO: replace this
+    // console.log(arr.concat(arr))
+    let sorted = sort(arr);
+    return rotated = sorted.slice(d).concat(sorted.splice(0,d))
 }
 
 let nums = [4, 5, 2, 1, 3]
