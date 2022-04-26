@@ -173,9 +173,9 @@ var quotes = [
 
 // TODO: answer here
 let quote = document.getElementById('random-quote');
-let author = document.getElementById('author');
-let citation = document.getElementById('citation');
-let year = document.getElementById('year');
+let author = document.getElementsByClassName('author')[0];
+let citation = document.getElementsByClassName('citation')[0];
+let year = document.getElementsByClassName('year')[0];
 
 displayQuote();
 
@@ -186,12 +186,12 @@ function getQuote() {
 	var randomQuote = Math.floor(Math.random() * quotes.length);
 	quote.innerHTML = quotes[randomQuote].quote;
 	author.innerHTML = quotes[randomQuote].author;
-	if(quotes[randomQuote].citation!==undefined){
+	if(quotes[randomQuote].citation !== undefined){
 		citation.innerHTML = quotes[randomQuote].citation;	
 	}else{
 		citation.innerHTML = "";	
 	}
-	if(quotes[randomQuote].year!==undefined){
+	if(quotes[randomQuote].year !== undefined){
 		year.innerHTML = quotes[randomQuote].year;
 	}else{
 		year.innerHTML = "";	

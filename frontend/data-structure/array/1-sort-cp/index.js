@@ -13,19 +13,21 @@
 // [1,2,3,4,5] -> [2,3,4,5,1] -> [3,4,5,1,2] -> [4,5,1,2,3] -> [5,1,2,3,4]
 
 function sort(arr) {
-    return arr.sort()
+    return arr.sort(function(a,b){
+        return a-b;
+    })
 }
 
 function rotateLeft(d, arr) {
     // console.log(arr.concat(arr))
     let sorted = sort(arr);
-    return rotated = sorted.slice(d).concat(sorted.splice(0,d))
+    return rotated = sorted.slice(d).concat(sorted.splice(0,d));
 }
 
-let nums = [4, 5, 2, 1, 3]
-let sorted = sort(nums)
-console.log(sorted)
-rotated = rotateLeft(4, sorted)
-console.log(rotated)
+let nums = [4, 5, 2, 1, 3];
+let sorted = sort(nums);
+console.log(sorted);
+rotated = rotateLeft(4, sorted);
+console.log(rotated);
 
 module.exports = { sort, rotateLeft }

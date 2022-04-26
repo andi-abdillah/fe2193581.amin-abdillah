@@ -42,7 +42,7 @@ function checkNumber() {
   // TODO: answer here
   if(score.innerHTML>0){
     if(message.innerHTML != 'Yeay! You guessed the correct number!'){
-      if(input.value ==='' || input.value == 0 || input.value < 0 || input.value > 10) {
+      if(input.value === '' || input.value <= 0 || input.value > 10) {
         displayMessage('Guess any number between 1 and 10');
       } else if(input.value == randomNumber) {
         displayMessage('Yeay! You guessed the correct number!');

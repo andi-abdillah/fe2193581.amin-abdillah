@@ -18,14 +18,19 @@ function mostWordsFound(sentences) {
     for (let i = 0; i < sentences.length; i++) {
         let count = countWords(sentences[i]);
         // TODO: answer here
+        if(count > max) {
+            max = count;
+        }
     }
     return max
 }
 
 function countWords(sentence) {
-    return 0; // TODO: replace this
+    let words = sentence.split(' ');
+    return words.length;
 }
-
+let result = mostWordsFound(["Andi suka bermain bola", "Saya sedang belajar struktur data", "Terima kasih"])
+console.log(result);
 module.exports = {
     mostWordsFound, countWords
 }

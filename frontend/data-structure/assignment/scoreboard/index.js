@@ -18,34 +18,28 @@ class Scores {
         // TODO: answer here
         let result = new Map();
         let data = [];
-        let temp = [];
+        let output = [];
+        // TODO: answer here
         for(let i=0; i<this.scores.length; i++){
-            data.push(this.scores[i].correct*4-this.scores[i].wrong);
-        }
-        console.log(data);
-        for(let j=0; j<data.length; j++){
-            let correct = data[j];
-            if(result.has(correct)){
-                let arr = result.get(correct);
-                arr.push(this.scores[j]);
-                result.set(correct, arr);
+            let total = this.scores[i].correct*4 - this.scores[i].wrong;
+            if(result.has(total)){
+                result.get(total).push(this.scores[i]);
             } else{
-                let arr = [];
-                arr.push(this.scores[j]);
-                result.set(correct, arr);
-                temp.push(correct);
+                result.set(total, [this.scores[i]]);
+                data.push(total);
             }
         }
+        data = [...new Set(data)];
+        data.sort((a,b)=>b-a);
+        console.log(data);
         for(let i=0; i<result.size; i++){
-            result.get(temp[i]).sort((a, b) => {
+            result.get(data[i]).sort((a, b) => {
                 return b.correct - a.correct;
             });
         }
-        temp.sort((a,b)=>b-a);
-        let output = [];
-        for(let j=0; j<temp.length; j++){
-            for(let k=0; k<result.get(temp[j]).length; k++){
-                output.push(result.get(temp[j])[k].name);
+        for(let j=0; j<data.length; j++){
+            for(let k=0; k<result.get(data[j]).length; k++){
+                output.push(result.get(data[j])[k].name);
             }
         }
         console.log(result);
@@ -67,6 +61,7 @@ for (let i = 0; i <= total; i++) {
     }
 }
 let scores = new Scores(data)
+console.log(scores);
 console.log(scores.topStudents());
 
 module.exports = {
