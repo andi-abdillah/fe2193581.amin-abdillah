@@ -41,10 +41,8 @@ function countStudentsCantEat(students, sandwiches) {
             if(sandwiches[0] === students[0]){
                 sandwiches.shift();
                 students.shift();
-                temp = 0;
             } else{
-                students.push(students[0]);
-                students.shift();
+                students.push(students.shift());
             }
         } else{
             return students.length;
