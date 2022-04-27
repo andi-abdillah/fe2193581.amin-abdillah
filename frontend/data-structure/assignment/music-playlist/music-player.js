@@ -28,15 +28,16 @@ module.exports = class MusicPlayer {
     }
 }
 
-
 const MusicPlayer = require('./music-player')
 
 let playlist = new Playlist([], false)
 let player = new MusicPlayer(playlist)
-let song = new Song("Tulus", "Hati-Hati di Jalan")
-player.addSong(song)
+player.addSong(new Song("Tulus", "Hati-Hati di Jalan"))
+player.addSong(new Song("TREASURE", "DARARI"))
+player.addSong(new Song("NIKI", "Every Summertime"))
+player.addSong(new Song("Pamungkas", "To The Bone"))
+player.playlist.repeat()
+player.play()
 console.log(player)
-console.log(song)
-console.log(typeof song)
-console.log(typeof player.playlist.songs)
 console.log(player.playlist.songs)
+console.log(player.play())
