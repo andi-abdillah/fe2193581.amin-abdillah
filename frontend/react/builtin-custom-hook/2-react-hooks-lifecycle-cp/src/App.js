@@ -10,10 +10,7 @@ export function RandomQuote() {
   const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
     // TODO: answer here
-    setLoading(true)
-    fetch('https://api.quotable.io/random').then(res => res.json())
-    .then(data => setQuote(data.content))
-    .finally(() => setLoading(false))
+    getQuote();
   }, []);
 
   function getQuote() {
@@ -30,9 +27,14 @@ export function RandomQuote() {
       <h1 className="title" data-testid="title">
         Random Quote
       </h1>
+      <br></br>
       <h1 className="quote" data-testid="quote">
         {loading ? "Loading..." : quote.content}
       </h1>
+      <h3 className="author" data-testid="author">
+        {loading ? "" : " - " + quote.author}
+      </h3>
+      <br></br>
       <button onClick={getQuote} className="button" data-testid="button" >
         Get another quote
       </button>

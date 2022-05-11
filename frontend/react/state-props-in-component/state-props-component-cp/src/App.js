@@ -3,7 +3,7 @@ import React from 'react';
 export const Item = (props) => {
   // TODO: answer here
   const [item, setItem] = React.useState(0);
-
+  const {id, image, title, showAlert, total, setTotal} = props;
   return(
     <div className='each-box'>
       <img src={image} alt="each-item"/>
@@ -13,6 +13,10 @@ export const Item = (props) => {
         aria-label={`minus-button-${id}`}
         onClick={()=>{
         // TODO: answer here
+        if(item > 0){
+          setItem(item - 1);
+          setTotal(total - 1);
+        }
         }}
         >-</button>
         <input type="text" aria-label={`item-${id}`} className={`item-${id}`} value={item} disabled></input>
@@ -20,6 +24,12 @@ export const Item = (props) => {
         aria-label={`add-button-${id}`}
         onClick={()=>{
           // TODO: answer here
+          if(item < 10){
+            setItem(item + 1);
+            setTotal(total + 1);
+          }else{
+            showAlert(true);
+          }
         }}
         >+</button>
       </div>
@@ -31,7 +41,8 @@ export const Item = (props) => {
 function App() {
   //Add state for total 
   // TODO: answer here
- 
+  const [total, setTotal] = React.useState(0);
+  
   const dataDummy = [
     {
       id    : '1',
@@ -62,6 +73,7 @@ function App() {
       <div className='box-container'>
           {dataDummy.map((element, index) => (
             // TODO: answer here
+            <Item total={total} setTotal={setTotal} key={index} id={element.id} image={element.image} title={element.title} showAlert={showAlert}/>
           ))}
       </div>
       <div className='end-section'>
