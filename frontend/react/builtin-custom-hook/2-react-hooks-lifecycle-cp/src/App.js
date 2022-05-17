@@ -32,7 +32,7 @@ export function RandomQuote() {
         {loading ? "Loading..." : quote.content}
       </h1>
       <h3 className="author" data-testid="author">
-        {loading ? "" : " - " + quote.author}
+        {loading ? "" : "- " + quote.author + " -"}
       </h3>
       <br></br>
       <button onClick={getQuote} className="button" data-testid="button" >

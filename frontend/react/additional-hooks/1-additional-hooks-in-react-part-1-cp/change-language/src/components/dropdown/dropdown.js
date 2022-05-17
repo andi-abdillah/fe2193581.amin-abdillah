@@ -5,17 +5,19 @@ import { LanguageContext } from '../../App';
 const Dropdown = () =>{
     //buatlah variable untuk mengimport context text dan setLanguage
     // TODO: answer here
+    const {text, setLanguage} = useContext(LanguageContext);
     const handleSelectValueChange = (value) =>{
         //gunakanlah method ini untuk mengubah context language
         // TODO: answer here
+        return setLanguage(value);
     }
 
     return(
         <div className={styles['dropdown']}>
             <label htmlFor='language'>{text.changeLanguage} : </label>
             <select data-testid='dropdown' name="language" onChange={(e)=>{handleSelectValueChange(e.target.value)}}>
-                <option value="english">{text.englishLanguage}</option>
                 <option value="indonesian">{text.indonesianLanguage}</option>
+                <option value="english">{text.englishLanguage}</option>
                 <option value="spanish">{text.spanishLanguage}</option>
             </select>
         </div>
