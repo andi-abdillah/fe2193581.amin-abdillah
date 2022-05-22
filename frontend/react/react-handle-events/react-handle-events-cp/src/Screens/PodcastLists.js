@@ -39,7 +39,6 @@ const PodcastLists = () => {
           // TODO: answer here
           return (
             <PodcastListItem
-              key={item.id}
               id={item.id}
               podcastItem={item}
               setFormModalType={setFormModalType}
