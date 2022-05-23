@@ -7,46 +7,51 @@ export default function LikeDislikeButton({id, isLiked, isDisliked, likeCount, d
     // TODO: answer here
     const [likes, setLikes] = useState(likeCount);
     const [dislikes, setDislikes] = useState(dislikeCount);
+    const [isLikedState, setIsLikedState] = useState(isLiked);
+    const [isDislikedState, setIsDislikedState] = useState(isDisliked);
 
     return (
         <div className="LikeButton">
             <div>
                 <button aria-label="Like Button"
                 onClick={()=>{
-                    if (isLiked) {
+                    if (isLikedState) {
+                        axios.get(`${API_URL}/post/123/unlike`, { withCredentials: true})
                         setLikes(likes - 1);
-                    } else if(isDisliked) {
-                        setLikes(likes + 1);
-                        setDislikes(dislikes - 1);
+                        setIsLikedState(false);
                     } else {
-                        setLikes(likes + 1);;
+                        axios.get(`${API_URL}/post/123/like`, { withCredentials: true})
+                        setLikes(likes + 1);
+                        setIsLikedState(true);
+                        if(isDislikedState) {
+                            setDislikes(dislikes - 1);
+                            setIsDislikedState(false);
+                        }
                     }
                 }}
                 >Like</button>
-                <text aria-label="Like Count">{likes}</text>
+                <span aria-label="Like Count">{likes}</span>
             </div>
 
             <div>
                 <button aria-label="Dislike Button"
                 onClick={()=>{
-                    if (isDisliked) {
+                    if (isDislikedState) {
+                        axios.get(`${API_URL}/post/123/undislike`, { withCredentials: true})
                         setDislikes(dislikes - 1);
-                    } else if (isLiked) {
-                        setDislikes(dislikes + 1);
-                        setLikes(likes - 1);
+                        setIsDislikedState(false);
                     } else {
-                        if(likes > 0) {
-                            setDislikes(dislikes + 1);
+                        axios.get(`${API_URL}/post/123/dislike`, { withCredentials: true})
+                        setDislikes(dislikes + 1);
+                        setIsDislikedState(true);
+                        if(isLikedState) {
                             setLikes(likes - 1);
-                        }
-                        if (likes === 0) {
-                            setDislikes(dislikes + 1);
-                            setLikes(likes - 0);
+                            setIsLikedState(false);
                         }
                     }
                 }}
                 >Dislike</button>
-                <text aria-label="Dislike Count">{dislikes}</text>
+                <span aria-label="Dislike Count">{dislikes}</span>
             </div>
         </div>
     )
