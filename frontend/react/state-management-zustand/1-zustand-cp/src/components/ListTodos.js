@@ -5,6 +5,16 @@ import TodoItem from "./TodoItem";
 
 export default function ListTodos() {
     // TODO: answer here
+    const { todos } = useTodoStore();
+    const {doneTodos, undoneTodos} = todos.reduce((accepted, todo) => {
+        if (todo.isDone) {  
+          accepted.doneTodos.push(todo);
+        } else {
+          accepted.undoneTodos.push(todo);
+        }
+        return accepted;
+    }, { doneTodos: [], undoneTodos: [] });
+    
 
     return (
       <Box width="xl" padding='1rem'>
