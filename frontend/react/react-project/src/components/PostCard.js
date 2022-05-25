@@ -1,8 +1,6 @@
 // TODO: answer here
 import React from 'react';
-import { useEffect, useState } from 'react';
-import axios from "axios";
-import { API_URL } from '../api/config';
+import { useState } from 'react';
 import LikeDislikeButton from './LikeDislikeButton';
 
 export default function PostCard({ image, caption, username, userId, date }) {

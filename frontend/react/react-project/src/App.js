@@ -3,7 +3,7 @@ import "./App.css"
 import React from "react"
 import { useEffect, useState } from 'react';
 import axios from "axios";
-import { API_URL } from './api/config';
+import POST_URL from "./api/post";
 import Navbar from "./components/Navbar"
 import PostCard from "./components/PostCard"
 import UploadForm from "./components/UploadForm"
@@ -13,7 +13,8 @@ function App() {
   const [postList, setPostlist] = useState([]);
 
   const getPostData = async () => {
-    const response = await axios.get(`${API_URL}/post/list`, { withCredentials: true});
+    const response = await axios.get(POST_URL.API_URL, { withCredentials: true});
+    console.log(response);
     setPostlist(response.data.data);
   };
 
@@ -22,7 +23,7 @@ function App() {
   }, []);
   
   // console.log(postList)
-
+  // console.log(axios.get(`${API_URL}/post/list`, { withCredentials: true}))
   return (
     <div aria-label="App">
       <h1 aria-label="App Title"></h1>
@@ -30,6 +31,7 @@ function App() {
       {postList.map((item) => {
         return (
           <PostCard
+            item = {item}
             image = {item.image}
             caption = {item.content}
             username = {item.author.name}
