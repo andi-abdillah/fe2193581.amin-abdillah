@@ -25,21 +25,26 @@ const PodcastFormModal = (props) => {
 
   const handleFormSubmit = async () => {
     // TODO: answer here
-    if(formModalType === "ADD") {
-      const response = await axios.post(Constants.API_URL);
-      setPodcastList([...podcastList, response.data]);
-    } else{
-      const response = await axios.put(Constants.API_URL + "/" + podcastId, formValues);
-      const updatedPodcastList = podcastList.map((item) => {
-        if(item.id === podcastId) {
-          return response.data;
-        }
-        return item;
-      });
-      setPodcastList(updatedPodcastList);
+    try {
+      if (formModalType === "ADD") {
+        const response = await axios.post(Constants.API_URL);
+        setPodcastList([...podcastList, response.data]);
+      } else {
+        const response = await axios.put(`${Constants.API_URL}/${podcastId}`, formValues);
+        const updatePodcastList = podcastList.map((item) => {
+          if (item.id === podcastId) {
+            return response.data;
+          }
+          return item;
+        });
+        setPodcastList(updatePodcastList);
+        setFormModalType("ADD");
+      }
+      setFormValues({});
+      setShowFormModal(false);
+    } catch (error) {
+      console.log(error);
     }
-    setShowFormModal(false);
-    setFormModalType("ADD");
   };
 
   const onCloseModal = () => {
@@ -49,17 +54,21 @@ const PodcastFormModal = (props) => {
 
   const getPodcastById = async () => {
     // TODO: answer here
-    const response = await axios.get(`${Constants.API_URL}/${podcastId}`);
-    const podcast = response.data;
-    setFormValues({
-      title: podcast.title,
-      episode: podcast.episode,
-      genre: podcast.genre,
-      duration: podcast.duration,
-      publisher: podcast.publisher,
-      summary: podcast.summary,
-      imageUrl: podcast.imageUrl,
-    });
+    try {
+      const response = await axios.get(`${Constants.API_URL}/${podcastId}`);
+      const podcast = response.data;
+      setFormValues({
+        title: podcast.title,
+        episode: podcast.episode,
+        genre: podcast.genre,
+        duration: podcast.duration,
+        publisher: podcast.publisher,
+        summary: podcast.summary,
+        imageUrl: podcast.imageUrl,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

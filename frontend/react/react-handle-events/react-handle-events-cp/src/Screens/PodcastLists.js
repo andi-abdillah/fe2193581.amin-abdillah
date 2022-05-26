@@ -15,8 +15,12 @@ const PodcastLists = () => {
 
   const getPodcastListData = async () => {
     // TODO: answer here
-    const response = await axios.get(Constants.API_URL);
-    setPodcastList(response.data);
+    try {
+      const response = await axios.get(Constants.API_URL);
+      setPodcastList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
