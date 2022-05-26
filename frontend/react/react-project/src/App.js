@@ -15,7 +15,6 @@ function App() {
   const getPostData = async () => {
     try {
       const response = await axios.get(POST_URL.API_URL, { withCredentials: true});
-      console.log(response);
       setPostlist(response.data.data);
     } catch (error) {
       console.log(error);
@@ -30,7 +29,6 @@ function App() {
   // console.log(axios.get(`${API_URL}/post/list`, { withCredentials: true}))
   return (
     <div aria-label="App">
-      <h1 aria-label="App Title"></h1>
       <Navbar />
       {postList.map((item) => {
         return (

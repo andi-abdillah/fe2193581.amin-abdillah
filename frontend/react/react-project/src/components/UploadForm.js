@@ -9,14 +9,18 @@ export default function UploadForm({onSubmit}) {
   const [image, setImage] = useState(null);
   const [content, setContent] = useState("");
  
-  const handleSubmit = () => {
-    const formData = new FormData();
-    formData.append("image", image);
-    formData.append("content", content);
- 
-    axios.post(`${API_URL}/post/create`, formData, {
-      withCredentials: true,
-    })
+  const handleSubmit = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("image", image);
+      formData.append("content", content);
+  
+      await axios.post(`${API_URL}/post/create`, formData, {
+        withCredentials: true,
+      })
+    } catch (error) {
+      console.log(error);
+    }
   }  
  
   const handleImageChange = (e) => {
