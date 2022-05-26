@@ -27,7 +27,7 @@ const PodcastFormModal = (props) => {
     // TODO: answer here
     try {
       if (formModalType === "ADD") {
-        const response = await axios.post(Constants.API_URL);
+        const response = await axios.post(Constants.API_URL, formValues);
         setPodcastList([...podcastList, response.data]);
       } else {
         const response = await axios.put(`${Constants.API_URL}/${podcastId}`, formValues);

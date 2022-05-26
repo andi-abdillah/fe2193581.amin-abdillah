@@ -13,9 +13,13 @@ function App() {
   const [postList, setPostlist] = useState([]);
 
   const getPostData = async () => {
-    const response = await axios.get(POST_URL.API_URL, { withCredentials: true});
-    console.log(response);
-    setPostlist(response.data.data);
+    try {
+      const response = await axios.get(POST_URL.API_URL, { withCredentials: true});
+      console.log(response);
+      setPostlist(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
