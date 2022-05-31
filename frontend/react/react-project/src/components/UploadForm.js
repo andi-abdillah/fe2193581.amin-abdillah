@@ -15,7 +15,7 @@ export default function UploadForm({onSubmit}) {
       formData.append("image", image);
       formData.append("content", content);
   
-      await axios.post(`${API_URL}/post/create`, formData, {
+      axios.post(`${API_URL}/post/create`, formData, {
         withCredentials: true,
       })
     } catch (error) {
